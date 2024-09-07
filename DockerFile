@@ -1,5 +1,5 @@
-# Use Jenkins base image
-FROM jenkins/jenkins:latest
+# Use Jenkins base image for amd64 architecture
+FROM --platform=linux/amd64 jenkins/jenkins:latest
 
 # Switch to root user
 USER root
