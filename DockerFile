@@ -8,7 +8,7 @@ RUN echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] http
 
 # Update package lists and install useful tools
 RUN apt-get update && \
-    apt-get install -y sudo vim curl wget
+    apt-get install -y sudo vim curl wget docker.io
 
 # Install Terraform
 RUN apt-get update && sudo apt install terraform
