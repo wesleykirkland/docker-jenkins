@@ -4,6 +4,16 @@ FROM --platform=linux/amd64 jenkins/jenkins:latest
 # Switch to root user
 USER root
 
+# Add in docker repo for Docker Compose
+RUN apt-get install -y ca-certificates curl gnupg && \
+    mkdir -m 0755 -p /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && \
+    chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the Docker repository to Apt sources
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+
 # Update package lists, install necessary tools, and the lsb-release utility
 RUN apt-get update && \
     apt-get install -y sudo vim curl wget lsb-release gnupg software-properties-common docker-compose-plugin && \
