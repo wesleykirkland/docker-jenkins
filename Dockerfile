@@ -6,7 +6,7 @@ USER root
 
 # Update package lists, install necessary tools, and the lsb-release utility
 RUN apt-get update && \
-    apt-get install -y sudo vim curl wget lsb-release gnupg software-properties-common && \
+    apt-get install -y sudo vim curl wget lsb-release gnupg software-properties-common sops && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Docker CLI
