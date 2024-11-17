@@ -19,7 +19,7 @@ RUN DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose
 
 #Install Mozilla SOPS
 RUN LATEST_VERSION=$(curl -sL https://api.github.com/repos/mozilla/sops/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/') && \
-    wget https://github.com/mozilla/sops/releases/download/v${LATEST_VERSION}/sops-v${LATEST_VERSION}.linux.amd64 -o /usr/local/bin/sops && \
+    curl -L https://github.com/mozilla/sops/releases/download/v${LATEST_VERSION}/sops-v${LATEST_VERSION}.linux.amd64 -o /usr/local/bin/sops && \
     chmod +x /usr/local/bin/sops
 
 # Install Terraform
