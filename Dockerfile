@@ -4,9 +4,9 @@ FROM --platform=linux/amd64 jenkins/jenkins:latest
 # Switch to root user
 USER root
 
-# Update package lists, install necessary tools, and the lsb-release utility
+# Update package lists, install necessary tools, and the lsb-release utility, gettext-base (For Env substitution)
 RUN apt-get update && \
-    apt-get install -y sudo vim curl wget lsb-release gnupg software-properties-common && \
+    apt-get install -y sudo vim curl wget lsb-release gnupg software-properties-common gettext-base && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Docker CLI
