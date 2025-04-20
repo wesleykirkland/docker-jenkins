@@ -1,5 +1,5 @@
 # Use Jenkins base image for amd64 architecture
-FROM --platform=linux/amd64 jenkins/latest-jdk21:latest
+FROM --platform=linux/amd64 jenkins/jenkins:latest-jdk21
 
 # Switch to root user
 USER root
