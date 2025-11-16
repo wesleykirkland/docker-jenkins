@@ -28,6 +28,12 @@ RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor -o /usr/shar
     apt-get update && apt-get install -y terraform && \
     rm -rf /var/lib/apt/lists/*
 
+# Install OpenTofu
+RUN curl -fsSL https://get.opentofu.org/install-opentofu.sh -o /tmp/install-opentofu.sh && \
+    chmod +x /tmp/install-opentofu.sh && \
+    /tmp/install-opentofu.sh --install-method deb && \
+    rm -f /tmp/install-opentofu.sh
+
 # Add Jenkins user to sudoers
 RUN echo "jenkins ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
