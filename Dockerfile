@@ -6,7 +6,7 @@ USER root
 
 # Update package lists, install necessary tools, and the lsb-release utility, gettext-base (For Env substitution)
 RUN apt-get update && \
-    apt-get install -y sudo vim curl wget lsb-release gnupg software-properties-common gettext-base && \
+    apt-get install -y sudo vim curl wget lsb-release gnupg gettext-base && \
     rm -rf /var/lib/apt/lists/*
 
 # Install Docker CLI
